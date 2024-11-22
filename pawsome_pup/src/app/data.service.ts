@@ -21,20 +21,14 @@ export class DataService {
         for (const key in json['message']) {
           if (json['message'][key].length == 0) {
             // console.log(`${key}`)
-            var name = `${key}`.charAt(0).toUpperCase() + `${key}`.slice(1);
-            name[0].toUpperCase();
-            breedList.push(name);
+            breedList.push(`${key}`);
           } else {
             for (var i in json['message'][key]) {
-              var nameOne = `${json['message'][key][i]}`.charAt(0).toUpperCase() + `${json['message'][key][i]}`.slice(1);
-              var nameTwo = `${key}`.charAt(0).toUpperCase() + `${key}`.slice(1);
-              nameTwo[0].toUpperCase();
               // console.log(`${json["message"][key][i]} ${key}`)
-              breedList.push(`${nameOne} ${nameTwo}`);
+              breedList.push(`${json['message'][key][i]} ${key}`);
             }
           }
         }
-        breedList.sort();
         return breedList;
       })
       .catch(function (ex) {
@@ -48,6 +42,7 @@ export class DataService {
 
   public static async getRandomImage(breed: String) {
     var splitStr = breed.split(' ');
+    // Dog API uses primary names and secondary names. If there is no secondary name, use just primary. Otherwise, the format is /primaryName/secondaryName
     if (splitStr.length == 1) {
       var url = `https://dog.ceo/api/breed/${breed}/images/random`;
     } else {
@@ -59,7 +54,7 @@ export class DataService {
       const data = await response.json();
       return data['message'];
     } catch (error) {
-      return error;
+      return 'https://ih1.redbubble.net/image.4843210264.2123/flat,750x,075,f-pad,750x1000,f8f8f8.u2.jpg';
     }
   }
 }

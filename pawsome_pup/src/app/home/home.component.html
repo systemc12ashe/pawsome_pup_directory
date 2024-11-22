@@ -1,20 +1,27 @@
-<div class="container">
-    <div class="row">
-        <div class="col"> 
-            <br/> 
-            <div ngbDropdown> 
-              <button class="btn btn-primary" id="dog-breed-list" ngbDropdownToggle>Breed List</button> 
-              <div ngbDropdownMenu="dog-breed-list"> 
-                <button ngbDropdownItem *ngFor="let dogBreed of dogBreeds" (click)='selectBreed(dogBreed)'>{{ dogBreed }}</button>
-              </div> 
-            </div> 
-          </div>          
-    </div>
-    <div class="row center-block">
-        <div class="w-100 center-block">
-            <img src={{dogImage}} />
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <br />
+      <div ngbDropdown>
+        <button class="btn btn-primary btn-lg" id="dog-breed-list" ngbDropdownToggle>
+          Breed List
+        </button>
+        <div ngbDropdownMenu="dog-breed-list">
+          <button
+            ngbDropdownItem
+            *ngFor="let dogBreed of dogBreeds"
+            (click)="selectBreed(dogBreed)"
+          >
+            {{ dogBreed }}
+          </button>
         </div>
-        <h2 class="text-center">{{ selectedBreed }}</h2>
+      </div>
     </div>
   </div>
-    
+  
+  <div>
+    <br>
+    <img src="{{ dogImage }}" class="center-block"/>
+    <h2>{{ selectedBreed }}</h2>
+  </div>
+</div>
