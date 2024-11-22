@@ -29,6 +29,7 @@ export class DataService {
             }
           }
         }
+        breedList.sort();
         return breedList;
       })
       .catch(function (ex) {
