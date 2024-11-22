@@ -3,21 +3,18 @@
         <div class="col"> 
             <br/> 
             <div ngbDropdown> 
-              <button class="btn btn-primary" id="dog-breed-list" ngbDropdownToggle (click)='selectBreed("Akita")'>Breed List</button> 
+              <button class="btn btn-primary" id="dog-breed-list" ngbDropdownToggle>Breed List</button> 
               <div ngbDropdownMenu="dog-breed-list"> 
-                <button ngbDropdownItem *ngFor="let dogBreed of dogBreeds">{{ dogBreed }}</button>
-                <!-- <ul ngbDropdownItem>
-                    <li *ngFor="let breed in dogBreedList">{{ breed }}</li>
-                </ul> -->
+                <button ngbDropdownItem *ngFor="let dogBreed of dogBreeds" (click)='selectBreed(dogBreed)'>{{ dogBreed }}</button>
               </div> 
             </div> 
           </div>          
     </div>
     <div class="row center-block">
         <div class="w-100 center-block">
-            <img src=# dogImage alt="Beagle" class="center-block">
+            <img src={{dogImage}} />
         </div>
-        <h2 class="text-center">{{ currentBreed }}</h2>
+        <h2 class="text-center">{{ selectedBreed }}</h2>
     </div>
   </div>
     

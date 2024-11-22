@@ -8,8 +8,8 @@ import { DataService } from '../data.service';
 })
 export class HomeComponent implements OnInit  {
     dogBreeds: string[] = [];
-    selectedBreed!: String;
-    dogImage = "Beagle";
+    selectedBreed = "Pyrenees";
+    dogImage = "https://images.dog.ceo/breeds/pyrenees/n02111500_8884.jpg";
 
     constructor(public dataService: DataService) { }
 
@@ -17,11 +17,15 @@ export class HomeComponent implements OnInit  {
       this.dogBreeds = this.dataService.getBreedList();    
       console.log(this.dogBreeds);
     }
+
+    getDogImage(){
+      return this.dogImage;
+    }
     
-    public selectBreed(breed: String){
-      this.selectedBreed = breed; 
-      // this.dataService.getRandomImage(breed)
-      // this.dogImage = this.dataService.getRandomImage(breed)
-      console.log(this.dogImage)
+    public async selectBreed(breed: string){
+      this.selectedBreed = breed;
+        this.dogImage = await DataService.getRandomImage(breed)
+      
+      // console.log(this.dogImage)
     }
 }
