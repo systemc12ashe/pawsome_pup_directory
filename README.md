@@ -10,6 +10,7 @@ To start:
     ```
     npm start
     ```
+3. Open at http://localhost:4200/
 
 Dependencies
  - node.js
