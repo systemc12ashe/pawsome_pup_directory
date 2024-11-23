@@ -7,6 +7,7 @@ import { stdout } from 'process';
 export class DataService {
   constructor() {}
 
+  // Creates list of breeds in alphabetical order
   public getBreedList() {
     const breedList: string[] = [];
     var url = 'https://dog.ceo/api/breeds/list/all';
@@ -19,6 +20,7 @@ export class DataService {
       .then(function (json) {
         // console.log('parsed json', json["message"])
         for (const key in json['message']) {
+          // Dog API uses primary names and secondary names. If there is no secondary name, use just primary. Otherwise, the format is /primaryName/secondaryName
           if (json['message'][key].length == 0) {
             // console.log(`${key}`)
             breedList.push(`${key}`);
