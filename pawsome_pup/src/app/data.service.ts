@@ -36,9 +36,29 @@ export class DataService {
         console.log('parsing failed', ex);
       });
     breedList.sort();
-    console.log(breedList);
+    // console.log(breedList);
 
     return breedList;
+  }
+
+  getPrettyBreedList(list: string[]){
+    var upperCasedBreedList: string[] = [];
+    var breedResponse = list;
+    console.log(breedResponse.length)
+
+    for (let breed in breedResponse){
+      console.log(breed)
+      var names = breed.split(" ")
+      let nameOne = names[0].charAt(0).toUpperCase() + names[0].slice(1);
+
+      if (names.length == 1){
+        upperCasedBreedList.push(`${nameOne}`)
+      } else {
+        let nameTwo = names[1].charAt(0).toUpperCase() + names[1].slice(1);
+        upperCasedBreedList.push(`${nameTwo} ${nameOne}`)
+      }
+    }
+    return upperCasedBreedList;
   }
 
   public static async getRandomImage(breed: String) {
