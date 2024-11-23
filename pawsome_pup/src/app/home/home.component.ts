@@ -12,8 +12,8 @@ export class HomeComponent implements OnInit {
   prettyNames: string[] = [];
 
   // Default values
-  selectedBreed = 'pyrenees';
-  dogImage = 'https://images.dog.ceo/breeds/pyrenees/n02111500_8884.jpg';
+  selectedBreed = 'My Pyreneese!';
+  dogImage = 'https://lh3.googleusercontent.com/pw/AP1GczNfJ5nGSx3ykF5mfvWft0sNc8It_YtL8DWQ4OV8mee5IFrcV51Lc7c0q9Vu7xEtxlUn_OD3TcURQB5zBKKDBEEo12zz3dCFolKRSMPR4N4whSZQnZY-OjsLztfu5aE8tyuIoOGZ6sIKnNj-iqzHXcnlww=w471-h839-s-no';
   
 
   constructor(public dataService: DataService) {}
