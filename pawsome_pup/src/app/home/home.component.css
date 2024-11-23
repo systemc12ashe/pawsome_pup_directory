@@ -1,8 +1,19 @@
 img {
-    max-height: 300px;
-    height: auto;
+  max-height: 300px;
+  height: auto;
 }
 .dropDown {
-    max-height: 300px;
-    overflow-y: scroll;
-  }
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.btn-lg {
+  background-color: #94004c;
+  color: #e3ccd8;
+}
+
+h2 {
+  padding-top: 10px;
+  padding-bottom: 15%;
+  font-weight: 650;
+}
