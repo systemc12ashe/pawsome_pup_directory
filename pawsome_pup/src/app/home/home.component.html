@@ -12,7 +12,7 @@
             *ngFor="let dogBreed of dogBreeds"
             (click)="selectBreed(dogBreed)"
           >
-            {{ dogBreed }}
+            {{ prettify(dogBreed) }}
           </button>
         </div>
       </div>
@@ -22,6 +22,6 @@
   <div>
     <br />
     <img src="{{ dogImage }}" class="center-block" />
-    <h2>{{ selectedBreed }}</h2>
+    <h2>{{ prettify(selectedBreed) }}</h2>
   </div>
 </div>
